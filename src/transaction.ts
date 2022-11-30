@@ -1473,7 +1473,9 @@ export class Transaction extends Dml {
    */
   constructor(
     session: Session,
-    options = {} as spannerClient.spanner.v1.TransactionOptions.ReadWrite,
+    options = {
+      readLockMode: 2,
+    } as spannerClient.spanner.v1.TransactionOptions.ReadWrite,
     queryOptions?: IQueryOptions,
     requestOptions?: Pick<IRequestOptions, 'transactionTag'>
   ) {

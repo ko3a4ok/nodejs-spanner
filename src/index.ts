@@ -1456,6 +1456,7 @@ class Spanner extends GrpcService {
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   request(config: any, callback?: any): any {
+    console.log('Request: ', JSON.stringify(config, null, 1));
     if (typeof callback === 'function') {
       this.prepareGapicRequest_(config, (err, requestFn) => {
         if (err) {

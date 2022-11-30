@@ -3237,6 +3237,9 @@ describe('Spanner with mock server', () => {
         request.requestOptions!.transactionTag,
         'transaction-tag'
       );
+      assert.strictEqual(request.singleUseTransaction!.readWrite, {
+        readLockMode: 'OPTIMISTIC',
+      });
     });
 
     it('should run begin transaction on blind commit', async () => {
